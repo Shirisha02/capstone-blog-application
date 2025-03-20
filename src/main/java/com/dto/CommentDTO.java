@@ -4,69 +4,74 @@ import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+/**
+ * Data Transfer Object (DTO) for Comment.
+ * 
+ * This class is used to transfer comment data between layers (e.g., service and controller).
+ * It includes validation annotations to ensure that the comment is not blank and the blog ID is not null.
+ */
 public class CommentDTO {
 
     private Long id;
 
-    @NotBlank(message = "Comment cannot be empty")  // Adjusted validation message
-    private String comment;  // Changed from commentText to comment
+    @NotBlank(message = "Comment cannot be empty")
+    private String comment;  // The content of the comment
 
     @NotNull(message = "Blog ID is required")
-    private Long blogId;
+    private Long blogId;  // The ID of the blog associated with the comment
 
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt;  // The timestamp of when the comment was created
 
-	public Long getId() {
-		return id;
-	}
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getComment() {
-		return comment;
-	}
+    public String getComment() {
+        return comment;
+    }
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-	public Long getBlogId() {
-		return blogId;
-	}
+    public Long getBlogId() {
+        return blogId;
+    }
 
-	public void setBlogId(Long blogId) {
-		this.blogId = blogId;
-	}
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
+    }
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
-	}
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	@Override
-	public String toString() {
-		return "CommentDTO [id=" + id + ", comment=" + comment + ", blogId=" + blogId + ", createdAt=" + createdAt
-				+ "]";
-	}
+    // Override toString method for easy representation
+    @Override
+    public String toString() {
+        return "CommentDTO [id=" + id + ", comment=" + comment + ", blogId=" + blogId + ", createdAt=" + createdAt + "]";
+    }
 
-	public CommentDTO(Long id, @NotBlank(message = "Comment cannot be empty") String comment,
-			@NotNull(message = "Blog ID is required") Long blogId, LocalDateTime createdAt) {
-		super();
-		this.id = id;
-		this.comment = comment;
-		this.blogId = blogId;
-		this.createdAt = createdAt;
-	}
+    // Constructor with parameters
+    public CommentDTO(Long id, @NotBlank(message = "Comment cannot be empty") String comment,
+            @NotNull(message = "Blog ID is required") Long blogId, LocalDateTime createdAt) {
+        this.id = id;
+        this.comment = comment;
+        this.blogId = blogId;
+        this.createdAt = createdAt;
+    }
 
-	public CommentDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
-    
+    // Default constructor
+    public CommentDTO() {
+    }
 }
